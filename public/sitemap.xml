@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://signature-ten-ruddy.vercel.app/</loc>
+  </url>
+
+  <url>
+    <loc>https://signature-ten-ruddy.vercel.app/foundations</loc>
+  </url>
+
+  <url>
+    <loc>https://signature-ten-ruddy.vercel.app/typography</loc>
+  </url>
+
+  <url>
+    <loc>https://signature-ten-ruddy.vercel.app/color</loc>
+  </url>
+
+  <url>
+    <loc>https://signature-ten-ruddy.vercel.app/motion</loc>
+  </url>
+
+  <url>
+    <loc>https://signature-ten-ruddy.vercel.app/layout</loc>
+  </url>
+
+</urlset>
