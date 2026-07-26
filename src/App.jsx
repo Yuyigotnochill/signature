@@ -14,10 +14,12 @@ import Typography from "./pages/Typography";
 import Color from "./pages/Color";
 import Motion from "./pages/Motion";
 import ReadingProgress from "./components/common/ReadingProgress";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToTop />
     <SmoothScroll />
       <Loader />
       <Cursor />
