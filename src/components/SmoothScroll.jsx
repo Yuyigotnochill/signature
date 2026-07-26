@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 
+export let lenis;
+
 function SmoothScroll() {
   useEffect(() => {
-    const lenis = new Lenis({
+    lenis = new Lenis({
       duration: 1.2,
       smoothWheel: true,
       wheelMultiplier: 1,

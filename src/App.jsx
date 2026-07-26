@@ -20,7 +20,7 @@ function App() {
   return (
     <BrowserRouter>
     <ScrollToTop />
-    <SmoothScroll />
+    // <SmoothScroll />
       <Loader />
       <Cursor />
       <Spotlight />
