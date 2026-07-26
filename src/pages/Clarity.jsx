@@ -1,7 +1,7 @@
 import HeroSection from "../components/common/HeroSection";
 import EssaySection from "../components/common/EssaySection";
 
-import ClarityPrinciples from "../components/clarity/ClarityPrinciples";
+
 import VisualHierarchy from "../components/clarity/VisualHierarchy";
 import CommonMistakes from "../components/clarity/CommonMistakes";
 
@@ -32,7 +32,7 @@ function Clarity() {
         ]}
       />
 
-      <ClarityPrinciples />
+      
 
       <VisualHierarchy />
 
