@@ -15,6 +15,7 @@ import Color from "./pages/Color";
 import Motion from "./pages/Motion";
 import ReadingProgress from "./components/common/ReadingProgress";
 import ScrollToTop from "./components/ScrollToTop";
+import Performance from "./pages/Performance";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/typography" element={<Typography />} />
         <Route path="/color" element={<Color />} />
         <Route path="/motion" element={<Motion />} />
+        <Route path="/performance" element={<Performance />} />
       </Routes>
 
       <Footer />
