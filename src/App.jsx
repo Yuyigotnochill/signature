@@ -29,9 +29,9 @@ function App() {
       {/* <SmoothScroll /> */}
 
       <Loader />
-      <Cursor />
-      <Spotlight />
-      <BackgroundEffects />
+       <Cursor /> 
+       <Spotlight /> 
+       <BackgroundEffects /> 
       <ReadingProgress />
 
       {/* Shared Layout */}

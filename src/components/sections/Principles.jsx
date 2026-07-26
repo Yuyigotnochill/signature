@@ -55,7 +55,11 @@ function Principles() {
             <Reveal key={item.number} delay={index * 0.1}>
               <Tilt>
                 <Magnetic strength={25}>
-                  <Link to={item.link} className="block">
+                <Link
+  to={item.link}
+  className="block"
+  onClick={() => console.log("Clicked:", item.link)}
+>
 
                     <article
                       className="
