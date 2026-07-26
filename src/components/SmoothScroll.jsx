@@ -7,7 +7,10 @@ function SmoothScroll() {
   useEffect(() => {
     lenis = new Lenis({
       smoothWheel: true,
-      duration: 1.2,
+      duration: 0.7,
+      wheelMultiplier: 1,
+      touchMultiplier: 1,
+      syncTouch: true,
     });
 
     function raf(time) {
