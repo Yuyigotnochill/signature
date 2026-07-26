@@ -1,15 +1,13 @@
 import { useEffect } from "react";
-import Lenis from "lenis";
+import Lenis from "@studio-freight/lenis";
 
 export let lenis;
 
 function SmoothScroll() {
   useEffect(() => {
     lenis = new Lenis({
-      duration: 1.2,
       smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
+      duration: 1.2,
     });
 
     function raf(time) {

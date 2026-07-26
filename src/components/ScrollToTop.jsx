@@ -10,6 +10,8 @@ function ScrollToTop() {
       lenis.scrollTo(0, {
         immediate: true,
       });
+    } else {
+      window.scrollTo(0, 0);
     }
   }, [pathname]);
 
