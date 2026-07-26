@@ -4,7 +4,7 @@ import Loader from "./components/Loader";
 import Cursor from "./components/Cursor";
 import Spotlight from "./components/Spotlight";
 import BackgroundEffects from "./components/BackgroundEffects";
-
+import SmoothScroll from "./components/SmoothScroll";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Layout from "./pages/Layout";
@@ -18,6 +18,7 @@ import ReadingProgress from "./components/common/ReadingProgress";
 function App() {
   return (
     <BrowserRouter>
+    <SmoothScroll />
       <Loader />
       <Cursor />
       <Spotlight />

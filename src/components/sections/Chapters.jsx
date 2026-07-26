@@ -34,6 +34,13 @@ const chapters = [
     description:
       "Understand how animation guides attention, provides feedback, and creates delightful experiences.",
   },
+  {
+    number: "05",
+    title: "Layout",
+    link: "/layout",
+    description:
+      "Learn how grids, spacing, hierarchy, and alignment create interfaces that feel structured and effortless.",
+  },
 ];
 
 function Chapters() {
