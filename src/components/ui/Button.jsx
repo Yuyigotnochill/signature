@@ -1,15 +1,56 @@
-function Button({ children, variant = "primary" }) {
+import { FiArrowUpRight } from "react-icons/fi";
+
+function Button({
+  children,
+  variant = "primary",
+  icon = true,
+  className = "",
+}) {
   const styles = {
     primary:
-      "rounded-full bg-neutral-900 px-7 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl",
+      "bg-black text-white border-black hover:bg-neutral-900",
 
     secondary:
-      "rounded-full border border-neutral-300 bg-white/60 px-7 py-3 text-sm font-semibold backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-neutral-900 hover:bg-white",
+      "bg-transparent border-neutral-300 hover:border-black hover:bg-white",
+
+    ghost:
+      "border-transparent hover:bg-neutral-100",
   };
 
   return (
-    <button className={styles[variant]}>
+    <button
+      className={`
+        group
+        inline-flex
+        items-center
+        gap-4
+        rounded-full
+        border
+        px-8
+        py-4
+        text-sm
+        font-semibold
+        uppercase
+        tracking-[0.25em]
+        transition-all
+        duration-300
+        hover:-translate-y-1
+        ${styles[variant]}
+        ${className}
+      `}
+    >
       {children}
+
+      {icon && (
+        <FiArrowUpRight
+          className="
+            transition-transform
+            duration-300
+            group-hover:-translate-y-1
+            group-hover:translate-x-1
+          "
+        />
+      )}
     </button>
   );
 }

@@ -3,78 +3,102 @@ import { FiArrowUpRight } from "react-icons/fi";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import Reveal from "../animations/Reveal";
+import Magnetic from "../Magnetic";
+import Tilt from "../Tilt";
 
 const principles = [
   {
     number: "01",
     title: "Clarity",
     description:
-      "Interfaces should reduce friction, not create it. Every element should have a clear purpose.",
+      "Every interface should remove friction. Users should never have to guess where to click or what comes next.",
   },
   {
     number: "02",
     title: "Consistency",
     description:
-      "A consistent visual language helps users navigate naturally and builds confidence.",
+      "Consistent layouts, spacing and interactions create trust while making products easier to understand.",
   },
   {
     number: "03",
     title: "Accessibility",
     description:
-      "Great design is inclusive. Every visitor deserves an experience they can use comfortably.",
+      "Design should welcome everyone. Inclusive experiences aren't optional—they're fundamental.",
   },
   {
     number: "04",
     title: "Performance",
     description:
-      "Beautiful experiences should also be fast, responsive, and efficient across every device.",
+      "Fast interfaces feel premium. Speed is part of the design, not just an engineering concern.",
   },
 ];
 
 function Principles() {
   return (
-    <section className="border-t border-neutral-200 py-36">
+    <section className="py-40">
       <Container>
         <Reveal>
           <SectionHeading
             label="Core Principles"
-            title="The foundation of every exceptional digital experience."
-            description="Timeless principles matter more than temporary trends. These four ideas guide every thoughtful product."
+            title="The foundation of exceptional digital products."
+            description="Timeless principles outlast trends. Every memorable experience begins with these fundamentals."
           />
         </Reveal>
 
-        <div className="mt-24 grid gap-8 md:grid-cols-2">
+        <div className="mt-24 grid gap-10 md:grid-cols-2">
           {principles.map((item, index) => (
-            <Reveal key={item.number} delay={index * 0.12}>
-              <article className="group relative overflow-hidden rounded-3xl border border-neutral-200 bg-white/50 p-10 transition-all duration-500 hover:-translate-y-2 hover:border-neutral-900 hover:shadow-2xl">
+            <Reveal key={item.number} delay={index * 0.1}>
+              <Tilt>
+              <Magnetic strength={25}>
+                <article
+                  className="
+                    group
+                    relative
+                    overflow-hidden
+                    rounded-[32px]
+                    border
+                    border-neutral-200
+                    bg-white/70
+                    p-12
+                    backdrop-blur-xl
+                    transition-all
+                    duration-500
+                    hover:-translate-y-3
+                    hover:border-black/20
+                    hover:shadow-[0_30px_80px_rgba(0,0,0,.08)]
+                  "
+                >
+                  {/* Background Number */}
+                  <span className="absolute right-6 top-2 text-[8rem] font-black tracking-[-0.08em] text-neutral-100 transition-all duration-500 group-hover:scale-110 group-hover:text-neutral-200">
+                    {item.number}
+                  </span>
 
-                {/* Huge Background Number */}
-                <span className="absolute -right-6 -top-10 select-none text-[8rem] font-extrabold text-neutral-200 opacity-30 transition-all duration-500 group-hover:opacity-60">
-                  {item.number}
-                </span>
+                  {/* Small Number */}
+                  <p className="text-xs font-semibold uppercase tracking-[0.4em] text-neutral-400">
+                    {item.number}
+                  </p>
 
-                {/* Number */}
-                <p className="text-sm uppercase tracking-[0.35em] text-neutral-400">
-                  {item.number}
-                </p>
+                  {/* Title */}
+                  <div className="mt-8 flex items-center justify-between">
+                    <h3 className="text-3xl font-bold tracking-tight">
+                      {item.title}
+                    </h3>
 
-                {/* Title */}
-                <div className="mt-6 flex items-center justify-between">
-                  <h3 className="text-3xl font-bold tracking-tight">
-                    {item.title}
-                  </h3>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-neutral-300 transition-all duration-300 group-hover:border-black group-hover:bg-black group-hover:text-white">
+                      <FiArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+                    </div>
+                  </div>
 
-                  <FiArrowUpRight className="text-2xl transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </div>
+                  {/* Divider */}
+                  <div className="my-8 h-px bg-neutral-200"></div>
 
-                {/* Divider */}
-                <div className="my-8 h-px bg-neutral-200"></div>
-
-                {/* Description */}
-                <p className="leading-8 text-neutral-600">
-                  {item.description}
-                </p>
-              </article>
+                  {/* Description */}
+                  <p className="text-lg leading-9 text-neutral-600">
+                    {item.description}
+                  </p>
+                </article>
+              </Magnetic>
+              </Tilt>
             </Reveal>
           ))}
         </div>

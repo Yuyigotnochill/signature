@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-/* =========================
-   GENERAL SANS
-========================= */
+/* ==========================================
+   FONTS
+========================================== */
 
 @font-face {
   font-family: "General Sans";
@@ -28,64 +28,242 @@
   font-weight: 700;
 }
 
-/* =========================
+/* ==========================================
    ROOT
-========================= */
+========================================== */
 
-:root {
-  --bg: #f7f4ef;
-  --text: #161616;
-  --border: #e5ddd2;
+:root{
+  --bg:#f6f3ee;
+  --surface:#fbfaf8;
+
+  --text:#141414;
+  --muted:#6f6f6f;
+
+  --border:#e7e1d8;
+
+  --accent:#c6a772;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+  scroll-behavior:smooth;
 }
 
-body {
-  font-family: "General Sans", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
+body{
+
+  font-family:"General Sans",sans-serif;
+
+  background:var(--bg);
+
+  color:var(--text);
+
+  overflow-x:hidden;
+
+  cursor: none;
+
+  -webkit-font-smoothing:antialiased;
+
+  text-rendering:optimizeLegibility;
+
 }
 
-section {
-  position: relative;
+/* ==========================================
+   BACKGROUND
+========================================== */
+
+body::before{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  pointer-events:none;
+
+  z-index:-2;
+
+  background:
+
+  radial-gradient(circle at 18% 14%,rgba(255,255,255,.95),transparent 28%),
+
+  radial-gradient(circle at 84% 10%,rgba(255,255,255,.55),transparent 30%),
+
+  radial-gradient(circle at 100% 65%,rgba(0,0,0,.03),transparent 32%),
+
+  radial-gradient(circle at 0% 100%,rgba(0,0,0,.025),transparent 35%);
+
 }
 
-section::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(223, 216, 207, 0.8),
-    transparent
+/* paper grid */
+
+body::after{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  pointer-events:none;
+
+  z-index:-1;
+
+  opacity:.035;
+
+  background-image:
+
+  linear-gradient(rgba(0,0,0,.10) 1px,transparent 1px),
+
+  linear-gradient(90deg,rgba(0,0,0,.10) 1px,transparent 1px);
+
+  background-size:92px 92px;
+
+}
+
+/* ==========================================
+   TYPOGRAPHY
+========================================== */
+
+h1{
+
+  line-height:.92;
+
+  letter-spacing:-.06em;
+
+}
+
+h2{
+
+  line-height:1;
+
+  letter-spacing:-.05em;
+
+}
+
+p{
+
+  color:var(--muted);
+
+  line-height:1.9;
+
+}
+
+/* ==========================================
+   SECTIONS
+========================================== */
+
+section{
+
+  position:relative;
+
+  padding-block:8rem;
+
+}
+
+section:first-child{
+
+  padding-top:0;
+
+}
+
+section::after{
+
+  content:"";
+
+  position:absolute;
+
+  bottom:0;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:min(1400px,90%);
+
+  height:1px;
+
+  background:linear-gradient(
+
+  to right,
+
+  transparent,
+
+  rgba(0,0,0,.08),
+
+  transparent
+
   );
+
 }
 
-::selection {
-  background: #161616;
-  color: white;
+/* ==========================================
+   LINKS
+========================================== */
+
+a{
+
+  color:inherit;
+
+  text-decoration:none;
+
 }
 
-::-webkit-scrollbar {
-  width: 8px;
+/* ==========================================
+   BUTTONS
+========================================== */
+
+button{
+
+  font-family:inherit;
+
+  cursor:pointer;
+
 }
 
-::-webkit-scrollbar-thumb {
-  background: #b8afa3;
-  border-radius: 999px;
+/* ==========================================
+   SELECTION
+========================================== */
+
+::selection{
+
+  background:#111;
+
+  color:white;
+
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+  width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+  background:#bdb5ab;
+
+  border-radius:999px;
+
+}
+
+::-webkit-scrollbar-track{
+
+  background:transparent;
+  .line {
+    overflow: hidden;
+  }
 }

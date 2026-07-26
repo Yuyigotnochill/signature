@@ -1,27 +1,39 @@
 import Container from "../ui/Container";
+import Reveal from "../animations/Reveal";
 
 function Quote() {
   return (
-    <section className="py-40">
+    <section className="py-44">
+
       <Container>
-        <div className="mx-auto max-w-5xl text-center">
-          <p className="text-sm uppercase tracking-[0.35em] text-neutral-500">
-            Editorial Note
-          </p>
 
-          <blockquote className="mt-10 text-4xl font-semibold leading-tight md:text-6xl">
-            “Good design isn't decoration.
-            <br />
-            It's the removal of unnecessary friction.”
-          </blockquote>
+        <Reveal>
 
-          <p className="mt-10 text-lg text-neutral-600">
-            Every decision—whether it's typography, spacing, animation, or
-            accessibility—should help people achieve their goals with clarity
-            and confidence.
-          </p>
-        </div>
+          <div className="mx-auto max-w-5xl text-center">
+
+            <p className="mb-10 text-xs uppercase tracking-[0.45em] text-neutral-500">
+              Closing Thought
+            </p>
+
+            <h2 className="text-5xl font-bold leading-[1] tracking-[-0.05em] md:text-6xl xl:text-7xl">
+
+              "People ignore design
+              that ignores people."
+
+            </h2>
+
+            <p className="mt-12 text-lg uppercase tracking-[0.35em] text-neutral-400">
+
+              — Frank Chimero
+
+            </p>
+
+          </div>
+
+        </Reveal>
+
       </Container>
+
     </section>
   );
 }

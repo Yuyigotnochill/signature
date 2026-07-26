@@ -1,78 +1,76 @@
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
 import Reveal from "../animations/Reveal";
+import Magnetic from "../Magnetic";
+import Tilt from "../Tilt";
 
 const timeline = [
   {
     year: "1991",
     title: "The First Website",
     description:
-      "The web begins as a simple collection of linked documents, laying the foundation for everything that follows.",
+      "The web began as a simple collection of hyperlinked documents created to share scientific information.",
   },
   {
-    year: "1998",
-    title: "CSS Becomes Essential",
+    year: "2007",
+    title: "Mobile Revolution",
     description:
-      "Separating structure from presentation transforms how websites are designed and maintained.",
+      "Responsive thinking emerged as smartphones reshaped the way people accessed digital products.",
   },
   {
-    year: "2010",
-    title: "Mobile-First Design",
+    year: "2018",
+    title: "Experience First",
     description:
-      "Designers begin prioritizing small screens, leading to more flexible and user-focused interfaces.",
+      "Interfaces evolved beyond functionality, focusing on motion, accessibility and delightful interactions.",
   },
   {
-    year: "2014",
-    title: "Design Systems",
+    year: "2026",
+    title: "Timeless Design",
     description:
-      "Reusable components and shared guidelines create consistency across large digital products.",
-  },
-  {
-    year: "Today",
-    title: "Human-Centered Experiences",
-    description:
-      "Modern design balances aesthetics, accessibility, performance, and meaningful interaction.",
+      "Today's best products balance beauty, speed and usability to create experiences people remember.",
   },
 ];
 
 function Timeline() {
   return (
-    <section className="border-t border-neutral-200 py-36">
+    <section className="py-40">
       <Container>
         <Reveal>
           <SectionHeading
             label="Timeline"
             title="The evolution of digital design."
-            description="A few milestones that transformed the modern web."
+            description="Every milestone changed how people interact with technology."
           />
         </Reveal>
 
-        <div className="mt-24">
+        <div className="relative mt-24">
+          <div className="absolute left-[39px] top-0 h-full w-px bg-neutral-200"></div>
+
           {timeline.map((item, index) => (
-            <Reveal key={item.year} delay={index * 0.08}>
-              <article className="group border-b border-neutral-200 py-12 transition-all duration-300 hover:pl-6">
+            <Reveal key={item.year} delay={index * 0.12}>
+              <div className="group relative mb-16 flex gap-10">
+                {/* Year Circle */}
+                <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full border border-neutral-300 bg-white transition-all duration-500 group-hover:border-black group-hover:bg-black group-hover:text-white">
+                  <span className="text-sm font-bold">
+                    {item.year}
+                  </span>
+                </div>
 
-                <div className="grid gap-10 lg:grid-cols-[160px_1fr]">
-
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.35em] text-neutral-400">
-                      {item.year}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-4xl font-bold tracking-tight">
+                {/* Card */}
+                <Tilt>
+                <Magnetic strength={18}>
+                  <div className="flex-1 rounded-3xl border border-neutral-200 bg-white/70 p-10 backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-2 group-hover:border-black/20 group-hover:shadow-[0_25px_70px_rgba(0,0,0,.08)]">
+                    <h3 className="text-3xl font-bold">
                       {item.title}
                     </h3>
 
-                    <p className="mt-6 max-w-3xl leading-8 text-neutral-600">
+                    <p className="mt-5 max-w-2xl text-lg leading-9 text-neutral-600">
                       {item.description}
                     </p>
                   </div>
-
-                </div>
-
-              </article>
+                </Magnetic>
+                </Tilt>
+              </div>
             </Reveal>
           ))}
         </div>

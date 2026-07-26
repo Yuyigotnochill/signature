@@ -1,36 +1,74 @@
+import { NavLink } from "react-router-dom";
+import Container from "../ui/Container";
+
 const links = [
-  "Foundations",
-  "Typography",
-  "Color",
-  "Motion",
+  { label: "Foundations", to: "/foundations" },
+  { label: "Typography", to: "/typography" },
+  { label: "Color", to: "/color" },
+  { label: "Motion", to: "/motion" },
+  { label: "Layout", to: "/layout" },
 ];
 
 function Navbar() {
   return (
-    <header className="fixed left-1/2 top-5 z-50 w-full -translate-x-1/2 px-6 lg:px-8">
-      <nav className="mx-auto flex max-w-7xl translate-x-8 items-center justify-between overflow-hidden rounded-full border border-black/5 bg-white/70 px-8 py-4 shadow-[0_10px_40px_rgba(0,0,0,.08)] backdrop-blur-xl">
+    <header
+    className="
+      fixed
+      inset-x-0
+      top-0
+      z-50
+      border-b
+      border-neutral-200
+      bg-[#f7f4ef]/85
+      backdrop-blur-2xl
+      supports-[backdrop-filter]:bg-[#f7f4ef]/70
+    "
+  >
 
-       <a
-  href="/"
-  className="ml-8 lg:ml-16 text-lg font-semibold uppercase tracking-[0.28em]"
->
-  SIGNATURE
-</a>
+      <Container>
 
-        <ul className="hidden items-center gap-10 md:flex">
-          {links.map((link) => (
-            <li key={link}>
-              <a
-                href="#"
-                className="rounded-full px-3 py-2 text-sm text-neutral-600 transition-all duration-300 hover:bg-black/5 hover:text-black"
+        <div className="flex h-20 items-center justify-between">
+
+          {/* Logo */}
+          <NavLink
+            to="/"
+            className="
+  text-lg
+  font-black
+  tracking-[0.45em]
+  transition-opacity
+  duration-300
+  hover:opacity-70
+"
+          >
+            SIGNATURE
+          </NavLink>
+
+          {/* Navigation */}
+          <nav className="hidden items-center gap-12 lg:flex">
+
+            {links.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={({ isActive }) =>
+                  `relative text-sm uppercase tracking-[0.25em] transition-colors ${
+                    isActive
+                      ? "font-semibold text-black"
+                      : "text-neutral-500 hover:text-black"
+                  }`
+                }
               >
-                {link}
-              </a>
-            </li>
-          ))}
-        </ul>
+                {item.label}
+              </NavLink>
+            ))}
 
-      </nav>
+          </nav>
+
+        </div>
+
+      </Container>
+
     </header>
   );
 }

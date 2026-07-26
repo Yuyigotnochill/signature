@@ -1,15 +1,33 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import SplitType from "split-type";
 
 import Button from "../ui/Button";
 import Reveal from "../animations/Reveal";
+import Magnetic from "../Magnetic";
 
 function Hero() {
   const heroRef = useRef(null);
+  const headingRef = useRef(null);
 
   useEffect(() => {
     const element = heroRef.current;
 
+    // Split heading into lines
+    const split = new SplitType(headingRef.current, {
+      types: "lines",
+    });
+
+    // Animate lines
+    gsap.from(split.lines, {
+      y: 120,
+      opacity: 0,
+      stagger: 0.15,
+      duration: 1.1,
+      ease: "power4.out",
+    });
+
+    // Mouse parallax
     const handleMove = (e) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 12;
       const y = (e.clientY / window.innerHeight - 0.5) * 12;
@@ -26,6 +44,7 @@ function Hero() {
 
     return () => {
       window.removeEventListener("mousemove", handleMove);
+      split.revert();
     };
   }, []);
 
@@ -38,17 +57,15 @@ function Hero() {
         <div className="absolute right-0 top-40 h-80 w-80 rounded-full bg-stone-200/40 blur-[160px]" />
       </div>
 
-      {/* Editorial Grid */}
+      {/* Grid */}
       <div className="mx-auto grid w-full max-w-[1600px] grid-cols-12 px-8 md:px-14 lg:px-24">
 
-        {/* Left breathing space */}
         <div className="hidden lg:block lg:col-span-2"></div>
 
-        {/* Hero Content */}
         <div
-  ref={heroRef}
- className="col-span-12 lg:col-span-8 will-change-transform"
->
+          ref={heroRef}
+          className="col-span-12 lg:col-span-8 will-change-transform"
+        >
 
           <Reveal>
             <div className="mb-10 flex items-center gap-4">
@@ -62,17 +79,18 @@ function Hero() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1}>
-            <h1 className="max-w-3xl text-5xl font-bold leading-[0.95] tracking-[-0.05em] md:text-6xl xl:text-7xl">
-              Understanding the
-              <br />
-              principles behind
-              <br />
-              thoughtful digital
-              <br />
-              experiences.
-            </h1>
-          </Reveal>
+          <h1
+            ref={headingRef}
+            className="max-w-3xl overflow-hidden text-5xl font-bold leading-[0.95] tracking-[-0.05em] md:text-6xl xl:text-7xl"
+          >
+            Understanding the
+            <br />
+            principles behind
+            <br />
+            thoughtful digital
+            <br />
+            experiences.
+          </h1>
 
           <Reveal delay={0.2}>
             <div className="mt-10 h-px w-24 bg-neutral-300"></div>
@@ -87,9 +105,11 @@ function Hero() {
                 Built to inspire designers and developers who care about craft.
               </p>
 
-              <Button>
-                Start Reading →
-              </Button>
+              <Magnetic strength={15}>
+                <Button>
+                  Start Reading →
+                </Button>
+              </Magnetic>
 
             </div>
           </Reveal>

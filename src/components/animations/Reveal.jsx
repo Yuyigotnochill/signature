@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 function Reveal({
   children,
+  className = "",
   y = 60,
   delay = 0,
   duration = 0.9,
@@ -28,7 +29,14 @@ function Reveal({
     });
   }, { scope: ref });
 
-  return <div ref={ref}>{children}</div>;
+  return (
+    <div
+      ref={ref}
+      className={className}
+    >
+      {children}
+    </div>
+  );
 }
 
 export default Reveal;
